@@ -12,10 +12,15 @@ const { title, signedIn = true } = Astro.props;
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <meta name="robots" content="noindex, nofollow" />
     <title>{title} | Resume Pro NC dashboard</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <style is:global>
+      /* App on phones: fits the screen, no zoom, only scrolls up and down. 16px fields so iPhone does not zoom on tap. */
+      html, body { max-width: 100%; overflow-x: clip; touch-action: pan-x pan-y; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+      input, select, textarea { font-size: 16px; max-width: 100%; }
+    </style>
   </head>
   <body class="min-h-screen bg-paper text-ink">
     <header class="border-b border-rule bg-sheet">
